@@ -1,0 +1,338 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+:root {
+  --font-family: "Josefin Sans", sans-serif;
+  --transition: 1s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+body,
+header,
+header .theme-modes,
+.container,
+.container form,
+.container form .right,
+.container form .right div,
+.container form .right div div:nth-child(1),
+.container form .right div div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body {
+  width: 90%;
+  font-size: 20px;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 10px 20px;
+  transition: var(--transition);
+  background: url("/imgs/background.jpeg");
+  background-size: cover;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(109, 109, 109, 0.4);
+  z-index: -1;
+}
+
+header {
+  width: 95%;
+  margin-bottom: 20px auto;
+  padding: 10px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+body.dark-mode header nav ul li a {
+  color: white;
+}
+
+header nav ul .nav-links {
+  list-style: none;
+  text-decoration: underline;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 5px 15px 3px;
+  border-radius: 10px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+header nav ul .nav-links:hover {
+  background-color: #007bff;
+  color: white;
+  transition: var(--transition);
+}
+
+header .theme-modes {
+  width: 10%;
+  justify-content: flex-end;
+  gap: 10px;
+  z-index: 5;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+/* header .theme-modes p {
+  font-size: 10px;
+  color: black;
+  border-radius: 10px;
+  padding: 3px 0;
+  display: none;
+  transition: var(--transition);
+}
+
+header .theme-modes:hover p {
+  display: flex;
+}
+body.dark-mode .theme-modes:hover p {
+  color: white;
+} */
+header .theme-modes .sunny {
+  display: none;
+}
+header .theme-modes.active .sunny {
+  display: flex;
+}
+header .theme-modes.active .moon {
+  display: none;
+}
+
+.container {
+  width: 90%;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  flex-direction: column;
+  transition: var(--transition);
+  background: white;
+}
+.container.dark-mode {
+  box-shadow: 0 0 20px rgb(255, 255, 255);
+  background-color: black;
+  color: white;
+}
+
+.container .upper,
+.container .lower {
+  width: 95%;
+}
+
+.container .upper {
+  display: grid;
+  place-items: center;
+}
+
+.container form {
+  width: 100%;
+  height: 100%;
+}
+
+.container form .left {
+  width: 70%;
+}
+
+.container form .left textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  outline: none;
+  resize: none;
+  transition: var(--transition);
+}
+body.dark-mode .container form .left textarea {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.container form .right {
+  width: 25%;
+  height: 90%;
+  flex-direction: column;
+}
+
+.container form .right div {
+  width: 100%;
+  justify-content: center;
+}
+
+.container form .right div div:nth-child(1) {
+  justify-content: start;
+}
+
+.container form .right div div:nth-child(2) {
+  justify-content: end;
+}
+
+.container form .right select {
+  padding: 4px 8px;
+  font-size: 20px;
+}
+
+.container form .right input {
+  width: 100%;
+  padding: 5px 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.container.dark-mode form .right input {
+  background-color: #007bff;
+  color: white;
+}
+
+.line {
+  width: 80%;
+  background-color: black;
+  height: 2px;
+  margin: 50px auto 25px;
+}
+
+body.dark-mode .line {
+  background-color: white;
+}
+
+.container .lower {
+  /* max-width: 95% */
+  margin: 5px;
+  overflow-x: auto;
+}
+.container.dark-mode .lower {
+  background-color: black;
+  color: white;
+  transition: var(--transition);
+}
+
+.container .lower pre {
+  width: 100%;
+  line-height: 1.2;
+  white-space: pre;
+  word-wrap: break-word;
+  font-family: monospace;
+  word-spacing: normal;
+  word-break: normal;
+  background-color: white;
+  transition: var(--transition);
+}
+.container.dark-mode .lower pre {
+  background-color: black;
+  color: white;
+  transition: var(--transition);
+}
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  margin: 20px auto 0;
+  display: grid;
+  gap: 20px;
+  font-size: 25px;
+}
+
+footer a {
+  color: black;
+  cursor: pointer;
+}
+body.dark-mode footer a {
+  color: white;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1399px) {
+  .container {
+    width: 95%;
+    padding: 30px 25px;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  body {
+    width: 95%;
+  }
+  .container .upper form .right div {
+    width: 100%;
+    display: grid;
+    justify-content: start;
+  }
+  .container .upper form .right div .select-tag {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 699px) {
+  body {
+    width: 100%;
+  }
+  header .theme-modes p {
+    display: hidden;
+    font-size: 1px;
+  }
+  .container {
+    width: 95%;
+    padding: 30px 20px;
+  }
+  .container .upper form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .container .upper form .left,
+  .container .upper form .right {
+    width: 100%;
+  }
+  .container .upper form .right {
+    margin: 30px auto 0;
+    row-gap: 10px;
+  }
+  .container .upper form .right div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  footer {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  header h1 {
+    font-size: 1.2em;
+  }
+  .container {
+    width: 100%;
+    padding: 30px 15px;
+  }
+}
